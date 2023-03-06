@@ -7,10 +7,11 @@ public class StudentMangementSystem {
 
     //function test input is string or not
     public static void validString(String str) throws notValidString {
-        if (str.isEmpty()||Pattern.matches("-?\\d+(\\.\\d+)?", str)) {
+        if (str.isEmpty() || Pattern.matches("-?\\d+(\\.\\d+)?", str)) {
             throw new notValidString("Enter valid String!");
         }
     }
+
 
     public static void main(String[] args) throws notValidString {
         Scanner input = new Scanner(System.in);
@@ -22,6 +23,7 @@ public class StudentMangementSystem {
             System.out.println("--\t--\t--\t--MENU--\t--\t--\t--\n1: Add person\n2: Delete person\n3: Search person \n4: Display person\n5: Exit program");
             System.out.print("Enter your selection : ");
             select = input.nextInt();
+
             try {
                 switch (select) {
                     case 1 -> {
