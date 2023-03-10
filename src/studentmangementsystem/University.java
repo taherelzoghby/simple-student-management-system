@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class University {
 
-    private final ArrayList<Person> persons;
+    private ArrayList<Person> persons;
 
     public University() {
         this.persons = new ArrayList();
@@ -16,23 +16,34 @@ public class University {
     }
 
     public ArrayList<Person> getPersons() {
+        if (persons == null) {
+            return null;
+        }
         return persons;
     }
     //this function to add person
 
     public void AddPerson(String name, PersonDetail pr) {
         Person p = new Person(name, pr);
+        if (persons == null) {
+            this.persons = new ArrayList();
+        }
         persons.add(p);
     }
 
     //this function to delete person
     public boolean DeletePerson(String name, PersonDetail personDet) {
+        if (getPersons() == null) {
+            return false;
+        }
         return getPersons().removeAll(SearchPerson(name, personDet));
     }
 
     //this function to search
-
     public ArrayList<Person> SearchPerson(String name, PersonDetail personDet) {
+        if (getPersons() == null) {
+            return null;
+        }
         ArrayList p_s = new ArrayList();
         for (Person p : getPersons()) {
             if (name.equals(p.getName()) && personDet.getProperties().equals(p.getPersonDet().getProperties())) {

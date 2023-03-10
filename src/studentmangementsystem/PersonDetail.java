@@ -12,9 +12,15 @@ public class PersonDetail {
     }
 
      public Object getProperties(String key) {
+         if(properties==null){
+             return null;
+         }
         return properties.get(key);
     }
     public HashMap getProperties() {
+        if(properties==null){
+             return null;
+         }
         return properties;
     }
 

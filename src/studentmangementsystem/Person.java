@@ -34,6 +34,9 @@ public class Person {
     }
 
     public PersonDetail getPersonDet() {
+        if(personDet==null){
+            return null;
+        }
         return personDet;
     }
 
